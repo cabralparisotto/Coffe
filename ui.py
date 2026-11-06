@@ -1,7 +1,7 @@
 """Interface do DuckDB para exploração local pelo navegador.
 
 Spec:
-- Abre ``olist.duckdb`` na raiz do projeto e instala/carrega a extensão ``ui``
+- Abre ``cafe.duckdb`` na raiz do projeto e instala/carrega a extensão ``ui``
   antes de executar ``CALL start_ui()``; isso fornece a exploração pelo
   navegador no endereço local esperado.
 - Mantém o processo ativo enquanto a conexão serve a UI, imprime o endereço e
@@ -22,10 +22,10 @@ import duckdb
 
 def main():
     sys.stdout.reconfigure(encoding="utf-8")
-    caminho_banco = Path(__file__).resolve().parent / "olist.duckdb"
+    caminho_banco = Path(__file__).resolve().parent / "cafe.duckdb"
     if not caminho_banco.is_file():
         print(
-            "O banco olist.duckdb não existe. É preciso rodar a ingestão antes.",
+            "O banco cafe.duckdb não existe. É preciso rodar a ingestão antes.",
             file=sys.stderr,
         )
         sys.exit(1)

@@ -2,7 +2,7 @@
 
 Spec:
 - ``PASTA_RAW`` aponta para os arquivos de entrada relativamente à localização
-  deste módulo; ``olist.duckdb`` também fica na raiz do projeto. Assim, executar
+  deste módulo, em ``data/raw``; ``cafe.duckdb`` também fica na raiz do projeto. Assim, executar
   etapas a partir de outra pasta não cria um banco vazio no diretório errado.
 - ``conectar`` abre ou cria o banco e devolve a conexão ao chamador, que é
   responsável por fechá-la; nenhuma conexão global mantém o arquivo bloqueado.
@@ -20,12 +20,12 @@ from pathlib import Path as _Path
 
 import duckdb as _duckdb
 
-PASTA_RAW = _Path(__file__).resolve().parent.parent / "raw" / "tables"
+PASTA_RAW = _Path(__file__).resolve().parent.parent / "data" / "raw"
 
 
 def conectar():
     """Abre o banco localizado na raiz do projeto."""
-    caminho_banco = _Path(__file__).resolve().parent.parent / "olist.duckdb"
+    caminho_banco = _Path(__file__).resolve().parent.parent / "cafe.duckdb"
     return _duckdb.connect(str(caminho_banco))
 
 

@@ -1,0 +1,10 @@
+{
+  "duckdb": {
+    "command": "uvx",
+    "args": [
+      "mcp-server-motherduck",
+      "--db-path",
+      "olist.duckdb"
+    ]
+  }
+}

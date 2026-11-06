@@ -7,9 +7,8 @@ Spec:
 - Usa ``encoding="utf-8"`` e ``dtype=str`` para não adivinhar codificação nem
   inferir números e datas, evitando, por exemplo, perder zeros à esquerda.
   Apenas campos vazios são nulos; textos como ``NA`` permanecem textos.
-- Recria as tabelas ``raw.exportacoes_brasil_cafe_torrado`` e
-  ``raw.importacoes_paises_cafe_torrado`` em cada execução, tornando a
-  reexecução previsível e sem duplicação.
+- Recria as tabelas ``raw.tabela_1_exportacoes`` e ``raw.tabela_2_importacoes`` em cada execução, tornando a
+reexecução previsível e sem duplicação.
 - Verifica a presença de todos os arquivos antes de abrir o banco para evitar
   uma ingestão parcial por arquivos ausentes.
 - Exibe as contagens lidas do banco, com milhar separado por ponto, e o total
@@ -26,11 +25,11 @@ from pipeline.db import PASTA_RAW, conectar, criar_schema, gravar
 ARQUIVOS = (
     (
         "tabela_1_exportacoes_brasil_cafe_torrado_500plus.csv",
-        "exportacoes_brasil_cafe_torrado",
+        "tabela_1_exportacoes",
     ),
     (
         "tabela_2_importacoes_paises_cafe_torrado_500plus.csv",
-        "importacoes_paises_cafe_torrado",
+        "tabela_2_importacoes",
     ),
 )
 
@@ -52,7 +51,7 @@ def main():
             tabela,
             pd.read_csv(
                 PASTA_RAW / arquivo,
-                encoding="utf-8",
+                encoding="utf-8-sig",
                 dtype=str,
                 keep_default_na=False,
                 na_values=[""],
