@@ -4,6 +4,8 @@ Pipeline de dados e painel para explorar exportações brasileiras e importaçõ
 internacionais de café torrado não descafeinado. O projeto usa Python, DuckDB,
 SQL, Streamlit e Plotly.
 
+**Painel ao vivo:** [Abrir o app no Streamlit](https://cabralparisotto-coffe-app-lapdf9.streamlit.app/)
+
 > **Importante:** os códigos NCM 09012100 e HS 090121 identificam café torrado
 > não descafeinado. Neste projeto, são usados como proxy para estudar comércio
 > de café especial, mas não identificam qualidade, certificação, pontuação,
